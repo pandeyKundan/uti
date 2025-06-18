@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About UTIs | UTI PathoDB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              900: '#1e3a8a',
+              800: '#1e40af',
+              700: '#1d4ed8',
+            },
+            secondary: {
+              100: '#ccfbf1',
+              300: '#5eead4',
+              500: '#14b8a6',
+            },
+            accent: {
+              500: '#ec4899',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
+    
+    .pathogen-card {
+      transition: all 0.3s ease;
+      border-left: 4px solid #14b8a6;
+    }
+    
+    .pathogen-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+    
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    
+    .treatment-table {
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    
+    .treatment-table th {
+      background-color: #f0fdf4;
+    }
+    
+    .treatment-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+  <!-- Header -->
+  <nav class="bg-primary-900 text-white p-4 shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-secondary-300 flex items-center">
+        <i class="fas fa-bacteria mr-2"></i> UTI PathoDB
+      </a>
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="index.html" class="hover:text-secondary-300 transition-colors">Home</a>
+        
+        <!-- Pathogens Dropdown -->
+        <div class="dropdown relative">
+          <button class="hover:text-secondary-300 transition-colors flex items-center">
+            Pathogens <i class="fas fa-chevron-down ml-1 text-sm"></i>
+          </button>
+          <div class="dropdown-menu absolute hidden bg-white text-gray-800 rounded-md shadow-lg mt-2 py-1 w-64 z-50">
+            <a href="pages/Uropathogenic_Escherichia_coli.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Uropathogenic Escherichia coli</a>
+            <a href="pages/Klebsiella_pneumoniae.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Klebsiella pneumoniae</a>
+            <a href="pages/Proteus_mirabilis.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Proteus mirabilis</a>
+            <a href="pages/Pseudomonas_aeruginosa.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Pseudomonas aeruginosa</a>
+            <a href="pages/Enterococcus_faecalis.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Enterococcus faecalis</a>
+            <a href="pages/Staphylococcus_saprophyticus.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Staphylococcus saprophyticus</a>
+            <a href="pages/Acinetobacter_baumanii.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Acinetobacter baumanii</a>
+            <a href="pages/Enterobacter_aerogenes.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Enterobacter aerogenes</a>
+            <div class="border-t border-gray-200 my-1"></div>
+            <a href="pages/Candida_glabrata.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Candida glabrata</a>
+            <a href="pages/Candida_tropicalis.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Candida tropicalis</a>
+            <a href="pages/Candida_parapsilosis.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Candida parapsilosis</a>
+            <div class="border-t border-gray-200 my-1"></div>
+            <a href="pages/Citomegalovirus.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Citomegalovirus</a>
+            <a href="pages/Adeno_virus.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Adenovirus</a>
+            <a href="pages/BK_virus.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">BK virus</a>
+            <a href="pages/Polyomavirus.html" class="block px-4 py-2 hover:bg-secondary-100 hover:text-primary-800">Polyomavirus</a>
+          </div>
+        </div>
+        
+        <a href="#" class="hover:text-secondary-300 transition-colors">Research</a>
+        <a href="#" class="hover:text-secondary-300 transition-colors">Contact</a>
+      </div>
+      <button class="md:hidden text-xl">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Page Title -->
+  <header class="bg-gradient-to-r from-primary-700 to-secondary-500 py-16 text-center text-white">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Understanding Urinary Tract Infections (UTIs)</h1>
+      <p class="text-xl md:text-2xl opacity-90">Comprehensive database of UTI-causing pathogens with molecular markers and treatment options</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="py-12 px-4 max-w-6xl mx-auto space-y-12">
+    <section class="bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-primary-800 mb-4 flex items-center">
+          <i class="fas fa-info-circle mr-3 text-secondary-500"></i> What is a UTI?
+        </h2>
+        <p class="text-gray-700">
+          A Urinary Tract Infection (UTI) is an infection in any part of your urinary system — kidneys, ureters, bladder, and urethra. Most infections involve the lower urinary tract — the bladder and the urethra. UTIs are among the most common bacterial infections, affecting millions worldwide each year.
+        </p>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-primary-800 mb-4 flex items-center">
+          <i class="fas fa-user-friends mr-3 text-secondary-500"></i> Who Gets UTIs?
+        </h2>
+        <p class="text-gray-700 mb-4">
+          UTIs are more common in women, with at least 50% experiencing one in their lifetime. Men, children, and older adults are also at risk, especially if they have conditions like diabetes or use catheters.
+        </p>
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+          <div class="bg-secondary-50 p-4 rounded-lg border-l-4 border-secondary-500">
+            <h3 class="font-semibold text-primary-800 mb-2">Risk Factors for Women</h3>
+            <ul class="list-disc pl-5 space-y-1 text-gray-700">
+              <li>Shorter urethra</li>
+              <li>Sexual activity</li>
+              <li>Use of diaphragms or spermicides</li>
+              <li>Menopause (changes in urinary tract)</li>
+            </ul>
+          </div>
+          <div class="bg-secondary-50 p-4 rounded-lg border-l-4 border-secondary-500">
+            <h3 class="font-semibold text-primary-800 mb-2">Risk Factors for Men</h3>
+            <ul class="list-disc pl-5 space-y-1 text-gray-700">
+              <li>Prostate enlargement</li>
+              <li>Kidney stones</li>
+              <li>Catheter use</li>
+              <li>Uncircumcised penis</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-primary-800 mb-4 flex items-center">
+          <i class="fas fa-exclamation-triangle mr-3 text-secondary-500"></i> Symptoms
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="font-semibold text-primary-800 mb-2">Lower UTI Symptoms</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+              <li>A strong, persistent urge to urinate</li>
+              <li>A burning sensation when urinating</li>
+              <li>Passing frequent, small amounts of urine</li>
+              <li>Cloudy, dark, bloody, or strong-smelling urine</li>
+              <li>Pelvic pain (in women) or rectal pain (in men)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-primary-800 mb-2">Upper UTI (Kidney) Symptoms</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+              <li>High fever (above 101°F/38.3°C)</li>
+              <li>Shaking and chills</li>
+              <li>Nausea and vomiting</li>
+              <li>Flank pain (back or side pain)</li>
+              <li>General malaise or confusion (especially in elderly)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-primary-800 mb-4 flex items-center">
+          <i class="fas fa-bug mr-3 text-secondary-500"></i> Common Pathogens
+        </h2>
+        <p class="text-gray-700 mb-6">
+          The microorganisms causing UTIs vary by infection type and patient population. Explore our database of common UTI pathogens by clicking on the dropdown menu above or browse the highlighted pathogens below:
+        </p>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <a href="pages/Uropathogenic_Escherichia_coli.html" class="pathogen-card bg-white p-5 rounded-lg shadow border border-gray-100">
+            <h3 class="font-bold text-primary-800 mb-2">Escherichia coli</h3>
+            <p class="text-sm text-gray-600 mb-3">Most common cause of uncomplicated UTIs</p>
+            <div class="flex items-center text-sm text-secondary-500">
+              <span>View details</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </div>
+          </a>
+          
+          <a href="pages/Klebsiella_pneumoniae.html" class="pathogen-card bg-white p-5 rounded-lg shadow border border-gray-100">
+            <h3 class="font-bold text-primary-800 mb-2">Klebsiella pneumoniae</h3>
+            <p class="text-sm text-gray-600 mb-3">Common in hospital-acquired infections</p>
+            <div class="flex items-center text-sm text-secondary-500">
+              <span>View details</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </div>
+          </a>
+          
+          <a href="pages/Proteus_mirabilis.html" class="pathogen-card bg-white p-5 rounded-lg shadow border border-gray-100">
+            <h3 class="font-bold text-primary-800 mb-2">Proteus mirabilis</h3>
+            <p class="text-sm text-gray-600 mb-3">Associated with urinary stones</p>
+            <div class="flex items-center text-sm text-secondary-500">
+              <span>View details</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </div>
+          </a>
+          
+          <a href="pages/Pseudomonas_aeruginosa.html" class="pathogen-card bg-white p-5 rounded-lg shadow border border-gray-100">
+            <h3 class="font-bold text-primary-800 mb-2">Pseudomonas aeruginosa</h3>
+            <p class="text-sm text-gray-600 mb-3">Multidrug-resistant pathogen</p>
+            <div class="flex items-center text-sm text-secondary-500">
+              <span>View details</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </div>
+          </a>
+          
+          <a href="pages/Enterococcus_faecalis.html" class="pathogen-card bg-white p-5 rounded-lg shadow border border-gray-100">
+            <h3 class="font-bold text-primary-800 mb-2">Enterococcus faecalis</h3>
+            <p class="text-sm text-gray-600 mb-3">Common in hospital settings</p>
+            <div class="flex items-center text-sm text-secondary-500">
+              <span>View details</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </div>
+          </a>
+          
+          <a href="pages/Staphylococcus_saprophyticus.html" class="pathogen-card bg-white p-5 rounded-lg shadow border border-gray-100">
+            <h3 class="font-bold text-primary-800 mb-2">Staphylococcus saprophyticus</h3>
+            <p class="text-sm text-gray-600 mb-3">Common in young women</p>
+            <div class="flex items-center text-sm text-secondary-500">
+              <span>View details</span>
+              <i class="fas fa-arrow-right ml-2"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-primary-800 mb-4 flex items-center">
+          <i class="fas fa-flask mr-3 text-secondary-500"></i> Diagnosis
+        </h2>
+        <p class="text-gray-700 mb-4">
+          UTIs are typically diagnosed through a combination of symptom assessment and laboratory tests. Proper diagnosis is essential for effective treatment.
+        </p>
+        <div class="grid md:grid-cols-2 gap-6 mt-4">
+          <div>
+            <h3 class="font-semibold text-primary-800 mb-2">Common Diagnostic Methods</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+              <li><strong>Urinalysis:</strong> Checks for white blood cells, red blood cells, and bacteria</li>
+              <li><strong>Urine culture:</strong> Identifies the bacteria causing the infection</li>
+              <li><strong>PCR tests:</strong> Detect bacterial DNA with high sensitivity</li>
+              <li><strong>Imaging tests:</strong> Used for recurrent UTIs (ultrasound, CT scan)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-primary-800 mb-2">Advanced Techniques</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+              <li><strong>Mass spectrometry (MALDI-TOF):</strong> Rapid pathogen identification</li>
+              <li><strong>Molecular markers:</strong> Detection of virulence factors</li>
+              <li><strong>Antibiotic susceptibility testing:</strong> Determines effective treatments</li>
+              <li><strong>Biofilm detection:</strong> Important for chronic/recurrent infections</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-primary-800 mb-4 flex items-center">
+          <i class="fas fa-pills mr-3 text-secondary-500"></i> Treatment Options
+        </h2>
+        <p class="text-gray-700 mb-6">
+          Treatment depends on the type of UTI, the causative organism, and patient factors like allergies and comorbidities. Below are common treatment approaches:
+        </p>
+        
+        <div class="overflow-x-auto">
+          <table class="w-full treatment-table rounded-lg overflow-hidden">
+            <thead>
+              <tr class="text-left">
+                <th class="px-4 py-3 bg-primary-800 text-white">Pathogen Type</th>
+                <th class="px-4 py-3 bg-primary-800 text-white">First-line Treatment</th>
+                <th class="px-4 py-3 bg-primary-800 text-white">Alternatives</th>
+                <th class="px-4 py-3 bg-primary-800 text-white">Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="px-4 py-3 border-b border-gray-200 font-medium">Gram-negative bacteria (E. coli, Klebsiella)</td>
+                <td class="px-4 py-3 border-b border-gray-200">Nitrofurantoin, Fosfomycin</td>
+                <td class="px-4 py-3 border-b border-gray-200">TMP-SMX, Cephalexin</td>
+                <td class="px-4 py-3 border-b border-gray-200">3-7 days</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 border-b border-gray-200 font-medium">Pseudomonas</td>
+                <td class="px-4 py-3 border-b border-gray-200">Ciprofloxacin, Levofloxacin</td>
+                <td class="px-4 py-3 border-b border-gray-200">Ceftazidime, Piperacillin-tazobactam</td>
+                <td class="px-4 py-3 border-b border-gray-200">7-14 days</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 border-b border-gray-200 font-medium">Enterococcus</td>
+                <td class="px-4 py-3 border-b border-gray-200">Amoxicillin</td>
+                <td class="px-4 py-3 border-b border-gray-200">Vancomycin (for resistant strains)</td>
+                <td class="px-4 py-3 border-b border-gray-200">7-14 days</td>
+              </tr>
+              <tr>
+                <td class="px-4 py-3 font-medium">Candida (Fungal)</td>
+                <td class="px-4 py-3">Fluconazole</td>
+                <td class="px-4 py-3">Amphotericin B, Echinocandins</td>
+                <td class="px-4 py-3">7-14 days</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+          <h4 class="font-semibold text-yellow-800 mb-2 flex items-center">
+            <i class="fas fa-exclamation-circle mr-2"></i> Important Note
+          </h4>
+          <p class="text-yellow-700">
+            Antibiotic resistance is a growing concern. Always confirm susceptibility testing when possible, especially for hospital-acquired infections or recurrent UTIs.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-primary-800 mb-4 flex items-center">
+          <i class="fas fa-shield-alt mr-3 text-secondary-500"></i> Prevention Strategies
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="font-semibold text-primary-800 mb-3">General Prevention</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+              <li>Stay hydrated (drink 6-8 glasses of water daily)</li>
+              <li>Urinate when needed - don't hold it in</li>
+              <li>Wipe from front to back after bowel movements</li>
+              <li>Urinate soon after sexual intercourse</li>
+              <li>Avoid potentially irritating feminine products</li>
+              <li>Consider changing birth control methods (if using spermicides)</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-semibold text-primary-800 mb-3">For Recurrent UTIs</h3>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+              <li>Low-dose antibiotic prophylaxis (as prescribed)</li>
+              <li>Postcoital antibiotic (if related to sexual activity)</li>
+              <li>Vaginal estrogen therapy (for postmenopausal women)</li>
+              <li>Probiotics (especially Lactobacillus strains)</li>
+              <li>Cranberry products (may help some individuals)</li>
+              <li>D-mannose supplementation (for E. coli UTIs)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white rounded-xl shadow-md overflow-hidden">
+      <div class="p-6 md:p-8">
+        <h2 class="text-2xl font-semibold text-primary-800 mb-4 flex items-center">
+          <i class="fas fa-user-md mr-3 text-secondary-500"></i> When to Seek Medical Care
+        </h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+            <h3 class="font-semibold text-red-800 mb-2">Seek Immediate Care For:</h3>
+            <ul class="list-disc pl-5 space-y-1 text-gray-700">
+              <li>High fever (above 101°F/38.3°C) with chills</li>
+              <li>Severe flank pain or back pain</li>
+              <li>Nausea and vomiting with UTI symptoms</li>
+              <li>Confusion or altered mental status (especially in elderly)</li>
+              <li>Symptoms that worsen despite treatment</li>
+            </ul>
+          </div>
+          <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+            <h3 class="font-semibold text-blue-800 mb-2">Schedule a Visit For:</h3>
+            <ul class="list-disc pl-5 space-y-1 text-gray-700">
+              <li>UTI symptoms lasting more than 2 days</li>
+              <li>Recurrent UTIs (2 in 6 months or 3 in a year)</li>
+              <li>Blood in urine</li>
+              <li>Symptoms that improve but then return</li>
+              <li>Pregnancy with UTI symptoms</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary-900 text-white py-8">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div>
+          <h3 class="text-lg font-semibold mb-4 text-secondary-300">UTI PathoDB</h3>
+          <p class="text-sm text-gray-300">
+            A comprehensive database of urinary tract infection pathogens, their molecular markers, and treatment options.
+          </p>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4 text-secondary-300">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors">Home</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Research</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4 text-secondary-300">Resources</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Clinical Guidelines</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Antibiotic Resistance</a></li>
+            <li><a href="#" class="text-gray-300 hover:text-white transition-colors">Patient Education</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold mb-4 text-secondary-300">Connect</h3>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-facebook"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">
+              <i class="fab fa-researchgate"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-primary-700 mt-8 pt-6 text-sm text-gray-300 text-center">
+        <p>&copy; 2025 UTI PathoDB. All rights reserved. | <a href="#" class="hover:text-white transition-colors">Privacy Policy</a> | <a href="#" class="hover:text-white transition-colors">Terms of Use</a></p>
+        <p class="mt-2">For educational purposes only. Consult a healthcare professional for medical advice.</p>
+      </div>
+    </div>
+  </footer><h2>Explore Pathogen Pages</h2>
+<ul>
+  <li><a href="pathogens/acinetobacter-baumannii.html">Acinetobacter Baumannii</a></li>
+  <li><a href="pathogens/candida-glabrata.html">Candida Glabrata</a></li>
+  <li><a href="pathogens/candida-parapsilosis.html">Candida Parapsilosis</a></li>
+  <li><a href="pathogens/candida-dubliniensis.html">Candida Dubliniensis</a></li>
+  <li><a href="pathogens/candida-guilliermondii.html">Candida Guilliermondii</a></li>
+  <li><a href="pathogens/candida-lustinae.html">Candida Lustinae</a></li>
+  <li><a href="pathogens/candida-tropicalis.html">Candida Tropicalis</a></li>
+  <li><a href="pathogens/cytomegalovirus.html">Cytomegalovirus</a></li>
+  <li><a href="pathogens/enterobacter-aerogenes.html">Enterobacter Aerogenes</a></li>
+  <li><a href="pathogens/enterobacter-faecalis.html">Enterobacter Faecalis</a></li>
+  <li><a href="pathogens/human-papillomavirus.html">Human Papillomavirus</a></li>
+  <li><a href="pathogens/klebsiella-pneumoniae.html">Klebsiella Pneumoniae</a></li>
+  <li><a href="pathogens/polyomavirus.html">Polyomavirus</a></li>
+  <li><a href="pathogens/proteus-mirabilis.html">Proteus Mirabilis</a></li>
+  <li><a href="pathogens/pseudomonas-aeruginosa.html">Pseudomonas Aeruginosa</a></li>
+  <li><a href="pathogens/staphylococcus-aureus.html">Staphylococcus Aureus</a></li>
+</ul>
+
+</body>
+</html>
+
+<ul>
+  <li><a href="pages/Polyomavirus.html">Polyomavirus</a></li>
+  <li><a href="pages/acinetobacter-baumannii.html">Acinetobacter Baumannii</a></li>
+  <li><a href="pages/candida-lustinae.html">Candida Lustinae</a></li>
+  <li><a href="pages/candida-tropicalis.html">Candida Tropicalis</a></li>
+  <li><a href="pages/candida-dubliniensis.html">Candida Dubliniensis</a></li>
+  <li><a href="pages/candida-glabrata.html">Candida Glabrata</a></li>
+  <li><a href="pages/candida-guilliermondii.html">Candida Guilliermondii</a></li>
+  <li><a href="pages/candida-parapsilosis.html">Candida Parapsilosis</a></li>
+  <li><a href="pages/cytomegalovirus.html">Cytomegalovirus</a></li>
+  <li><a href="pages/enterobacter-aerogenes.html">Enterobacter Aerogenes</a></li>
+  <li><a href="pages/enterobacter-faecalis.html">Enterobacter Faecalis</a></li>
+  <li><a href="pages/human-papillomavirus.html">Human Papillomavirus</a></li>
+  <li><a href="pages/klebsiella-pneumoniae.html">Klebsiella Pneumoniae</a></li>
+  <li><a href="pages/proteus-mirabilis.html">Proteus Mirabilis</a></li>
+  <li><a href="pages/pseudomonas-aeruginosa.html">Pseudomonas Aeruginosa</a></li>
+  <li><a href="pages/staphylococcus-aureus.html">Staphylococcus Aureus</a></li>
+</ul>
